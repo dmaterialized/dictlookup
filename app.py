@@ -49,7 +49,8 @@ def define(w):
             yn = yn.lower()
             if yn =="y":
                 correctedWord=str(get_close_matches(w,data.keys())[0])
-                return "the word " + correctedWord + " is defined as: "+str(data[get_close_matches(w, data.keys())[0]])
+                print(correctedWord)
+                return data[get_close_matches(w, data.keys())[0]]
             elif yn=="n":
                 print("the word doesn't exist. Please check it.")
             else:
@@ -62,4 +63,20 @@ def define(w):
 
 word = input("please enter a word: ")
 
-print(define(word))
+# print(define(word)) - this was the previous way
+
+
+# need to create an output var which cleans up the text entries.
+output = define(word)
+
+# for item in output: #iterate through each output
+#     print(item) # print each item (doesn't work right now)
+#     # need to discriminate a list from a string.
+
+if type(output) == list:
+    print("The word "+ word + " is defined as: ")
+    for item in output:
+        print(item) # print each item if there are is than one
+else: # if it's not a list it has to be a string
+    print("The word "+ word +" is defined as: ")
+    print(output) #if a string, just print it.
