@@ -45,7 +45,7 @@ def define(w):
                 print("the word doesn't exist. Please check it.")
             else:
                 print("You don't like my suggestion?")
-
+                # end check for similar word
     else:
         return "The word doesn't exist in this dictionary. Please check the\
          spelling and try again."
