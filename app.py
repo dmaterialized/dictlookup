@@ -1,26 +1,35 @@
+# / dictlookup - looks up a specified word in a json dictionary.
+# \
+# / version: 1.0
+# \ date: 2017.08.10
+# / initial: 2017.08.10
+# \ TODO:
+# / - ensure the array formatting is removed
+
 import json
 from difflib import get_close_matches
+
+
 # sequencematcher/get_close_matches is used to test whether the string
 # is close to a properly-spelled word.
 
 # create array
 data = json.load(open("data.json"))
 
-# access a word by addressing its key.
-# data["rain"] returns the def.
-
+# we access a word by addressing its key.
+# data["rain"] will return the def.
 
 def define(w):
     # | SequenceMatcher/get_close_matches:
-    # | create close matching structure (to allow for match possibilities)
-    # | can be done using get_close_matches(word, data.keys())
-    # | pass 0 at end to grab only the first word from get_close_matches.
-    # | We need to ensure that it does something even when there are no matches.
+    # |     create close matching structure (to allow for match possibilities)
+    # |     can be done using get_close_matches(word, data.keys())
+    # |     pass 0 at end to grab only the first word from get_close_matches.
+    # |     We need to ensure that it does something even when there are no matches.
 
-    # -scenario 1: empty list
-    # -scenario 2: list of matches
-    #   - if so, return the first item in the list ONLY.
-    #     then pass a message to the user.
+        # -scenario 1: empty list
+        # -scenario 2: list of matches
+        #   - if so, return the first item in the list ONLY.
+        #     then pass a message to the user.
 
     w = w.lower() # automatically convert to lowercase for matching
     if w in data:
