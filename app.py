@@ -4,7 +4,7 @@
 # \ date: 2017.08.10
 # / initial: 2017.08.10
 # \ TODO:
-# / - ensure the array formatting is removed
+# / - ensure the array formatting is removed and newlines between each definition.
 
 import json
 from difflib import get_close_matches
@@ -49,7 +49,7 @@ def define(w):
             yn = yn.lower()
             if yn =="y":
                 correctedWord=str(get_close_matches(w,data.keys())[0])
-                return "the word "+correctedWord+" is defined as: "+str(data[get_close_matches(w, data.keys())[0]])
+                return "the word " + correctedWord + " is defined as: "+str(data[get_close_matches(w, data.keys())[0]])
             elif yn=="n":
                 print("the word doesn't exist. Please check it.")
             else:
