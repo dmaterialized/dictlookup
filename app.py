@@ -2,7 +2,7 @@
 # \
 # / version: 1.0
 # \ date: 2017.08.10
-# / initial: 2017.08.10
+# / initial: 2017.08.09
 # \ TODO:
 # / - ensure the array formatting is removed and newlines between each definition.
 
@@ -33,10 +33,11 @@ def define(w):
 
     w = w.lower() # automatically convert to lowercase for matching
     if w in data:
-        return data[w] # if there is an actual match, then use it.
-    # otherwise, use get_close_matches.
-    # take the length of what get_close_matches returns,
-    # and if it's greater than nothing, then pass the first item as a string.
+        return data[w]      # if there is an actual match, then use it.
+                            # otherwise, use get_close_matches.
+                            # take the length of what get_close_matches returns,
+                            # and if it's greater than nothing, then
+                            # pass the first item as a string.
     elif len(get_close_matches(w, data.keys())) >0:
         # in this case, you have a match suggested.
 
@@ -66,12 +67,12 @@ word = input("please enter a word: ")
 # print(define(word)) - this was the previous way
 
 
-# need to create an output var which cleans up the text entries.
+# need to create an output var which is used to clean up the text entries.
 output = define(word)
 
 # for item in output: #iterate through each output
 #     print(item) # print each item (doesn't work right now)
-#     # need to discriminate a list from a string.
+        #     # need to discriminate a list from a string.
 
 if type(output) == list:
     print("The word "+ word + " is defined as: ")
